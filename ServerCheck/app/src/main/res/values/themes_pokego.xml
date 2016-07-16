@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!-- Generated with http://android-holo-colors.com -->
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
+
+  <style name="PokeGo" parent="@style/_PokeGo"/>
+
+  <style name="_PokeGo" parent="android:Theme.Light">
+
+    <item name="android:buttonStyle">@style/ButtonPokeGo</item>
+
+    <item name="android:imageButtonStyle">@style/ImageButtonPokeGo</item>
+
+    <item name="android:spinnerStyle">@style/SpinnerPokeGo</item>
+
+    <item name="android:spinnerDropDownItemStyle">@style/SpinnerDropDownItemPokeGo</item>
+
+  </style>
+
+</resources>
