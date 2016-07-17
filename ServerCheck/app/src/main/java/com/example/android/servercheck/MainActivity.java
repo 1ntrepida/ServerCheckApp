@@ -15,7 +15,7 @@ public class MainActivity extends AppCompatActivity {
 
     public void refresh(View view) {
         ServerCheckCode data = new ServerCheckCode();
-        data.getInfo();
+        data.loadInfo();
         TextView info = (TextView) findViewById(R.id.info);
         info.setText(data.output());
     }

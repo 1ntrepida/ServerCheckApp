@@ -1,5 +1,7 @@
 package com.example.android.servercheck;
 
+import android.os.AsyncTask;
+
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
@@ -23,31 +25,38 @@ public class ServerCheckCode {
         unParsed = new ArrayList<String>();
     }
 
-    public void loadInfo() {
-
-    }
-
-    public void getInfo() {
-        Document doc = null;
-        try {
-            doc = Jsoup.connect("http://www.mmoserverstatus.com/pokemon_go").get();
-        } catch (IOException e) {
-            System.out.println("Exception thrown :" + e);
-        }
-
-        if (doc != null) {
-            Element content = doc.addClass("counter");
-            Elements links = content.getElementsByClass("white");
-            for (Element link : links) {
-                unParsed.add(link.text());
+    private class GetInfo extends AsyncTask<String, Void, Document> {
+        @Override
+        protected Document doInBackground(String... params) {
+            Document doc = null;
+            String url = "http://www.mmoserverstatus.com/pokemon_go";
+            try {
+                doc = Jsoup.connect(url).get();
+            } catch (IOException e) {
+                System.out.println("Exception thrown :" + e);
             }
+
+            if (doc != null) {
+                Element content = doc.addClass("counter");
+                Elements links = content.getElementsByClass("white");
+                for (Element link : links) {
+                    unParsed.add(link.text());
+                }
+            }
+            return null;
         }
     }
+
+    public void loadInfo() {
+        GetInfo info = new GetInfo();
+        info.doInBackground();
+    }
+
 
     public String output() {
         String data = "";
         for (String words : unParsed) {
-            data += data + "\n";
+            data += words + "\n";
         }
         return data;
     }
