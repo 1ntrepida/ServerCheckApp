@@ -34,10 +34,11 @@
             android:textSize="25sp"
             android:textAlignment="center"
             android:paddingTop="20dp"
-            android:paddingBottom="20dp" />
+            android:paddingBottom="30dp"
+            android:shadowColor="#000000" />
 
         <Button
-            android:layout_width="match_parent"
+            android:layout_width="254dp"
             android:layout_height="37dp"
             android:text="Refresh!"
             android:textAllCaps="false"
@@ -46,8 +47,7 @@
             android:onClick="refresh"
             android:textColor="#000000"
             android:background="#fcdf00"
-            android:height="20dp"
-            android:width="match_parent" />
+            android:height="20dp"/>
 
     </LinearLayout>
 </RelativeLayout>
