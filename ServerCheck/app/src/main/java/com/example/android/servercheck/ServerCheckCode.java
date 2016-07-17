@@ -5,7 +5,6 @@ import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
 
-import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -21,6 +20,7 @@ public class ServerCheckCode {
 
     public ServerCheckCode() {
         data = new HashMap<String, String>();
+        unParsed = new ArrayList<String>();
     }
 
     public void loadInfo() {
@@ -29,9 +29,8 @@ public class ServerCheckCode {
 
     public void getInfo() {
         Document doc = null;
-        File input = new File("/tmp/input.html");
         try {
-            doc = Jsoup.parse(input, "UTF-8", "http://www.mmoserverstatus.com/pokemon_go");
+            doc = Jsoup.connect("http://www.mmoserverstatus.com/pokemon_go").get();
         } catch (IOException e) {
             System.out.println("Exception thrown :" + e);
         }
@@ -45,5 +44,11 @@ public class ServerCheckCode {
         }
     }
 
-
+    public String output() {
+        String data = "";
+        for (String words : unParsed) {
+            data += data + "\n";
+        }
+        return data;
+    }
 }

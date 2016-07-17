@@ -23,7 +23,10 @@
 
         <TextView
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:id="@+id/info"
+            android:text="refresh to get data"
+            android:textColor="@android:color/white"/>
 
         <Button
             android:layout_width="wrap_content"
@@ -31,7 +34,8 @@
             android:text="Refresh!"
             android:textAllCaps="false"
             android:id="@+id/refreshButton"
-            android:layout_gravity="center_horizontal" />
+            android:layout_gravity="center_horizontal"
+            android:onClick="refresh"/>
 
     </LinearLayout>
 </RelativeLayout>

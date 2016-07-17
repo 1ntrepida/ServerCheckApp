@@ -2,8 +2,8 @@ package com.example.android.servercheck;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-
-import java.io.File;
+import android.view.View;
+import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -13,16 +13,11 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
     }
 
-    public void loadContent() {
-        File input = new File("/tmp/input.html");
-        Document doc = Jsoup.parse(input, "UTF-8", "http://example.com/");
-
-        Element content = doc.getElementById("content");
-        Elements links = content.getElementsByTag("a");
-        for (Element link : links) {
-            String linkHref = link.attr("href");
-            String linkText = link.text();
-        }
+    public void refresh(View view) {
+        ServerCheckCode data = new ServerCheckCode();
+        data.getInfo();
+        TextView info = (TextView) findViewById(R.id.info);
+        info.setText(data.output());
     }
 
 }
