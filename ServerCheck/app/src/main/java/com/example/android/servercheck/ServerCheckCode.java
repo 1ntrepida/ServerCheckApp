@@ -38,9 +38,10 @@ public class ServerCheckCode {
 
             if (doc != null) {
                 Element content = doc.addClass("counter");
-                Elements links = content.getElementsByClass("white");
-                for (Element link : links) {
-                    unParsed.add(link.text());
+                Elements locations = content.getElementsByClass("white");
+                Elements speeds = content.getElementsByClass("fa fa-check green");
+                for (Element link : locations) {
+                    unParsed.add(link.text() +" "+ speeds.text());
                 }
             }
             return null;

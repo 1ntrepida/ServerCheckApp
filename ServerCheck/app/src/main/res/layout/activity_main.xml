@@ -5,13 +5,16 @@
     android:layout_height="match_parent"
     tools:context="com.example.android.servercheck.MainActivity"
     android:background="@drawable/background"
-    android:scaleType="fitXY">
+    android:scaleType="fitXY"
+    android:gravity="center_vertical|center">
 
     <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:layout_centerHorizontal="true">
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        >
 
         <ImageView
             android:layout_width="match_parent"
@@ -19,23 +22,32 @@
             android:id="@+id/imageView"
             android:layout_below="@+id/textView"
             android:layout_centerHorizontal="true"
-            android:src="@drawable/logo" />
+            android:src="@drawable/logo"
+            android:paddingTop="10dp" />
 
         <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/info"
-            android:text="refresh to get data"
-            android:textColor="@android:color/white"/>
-
-        <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:id="@+id/info"
+            android:text="Region: Australia \nResponse Time: 112ms \nServers are running perfectly fine!"
+            android:textColor="@android:color/white"
+            android:textSize="25sp"
+            android:textAlignment="center"
+            android:paddingTop="20dp"
+            android:paddingBottom="20dp" />
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="37dp"
             android:text="Refresh!"
             android:textAllCaps="false"
             android:id="@+id/refreshButton"
             android:layout_gravity="center_horizontal"
-            android:onClick="refresh"/>
+            android:onClick="refresh"
+            android:textColor="#000000"
+            android:background="#fcdf00"
+            android:height="20dp"
+            android:width="match_parent" />
 
     </LinearLayout>
 </RelativeLayout>
