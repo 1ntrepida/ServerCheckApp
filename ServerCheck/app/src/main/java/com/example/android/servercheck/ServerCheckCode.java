@@ -53,11 +53,18 @@ public class ServerCheckCode {
         info.doInBackground();
     }
 
-
-    public String output() {
+    //should take in the location and speed
+    //output new textfield
+    public String output(String location, String time) {
         String data = "";
-        for (String words : unParsed) {
-            data += words + "\n";
+        data += "Region: " + location + "\n";
+        data += "Response Time : " + location + "\n";
+        int speed = Integer.parseInt(time.substring(0,3));
+        if(speed >= 80) {
+            data += "Servers are running perfectly fine!";
+        }
+        else {
+            data += "Servers are down.";
         }
         return data;
     }
