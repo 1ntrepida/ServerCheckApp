@@ -17,7 +17,7 @@ public class MainActivity extends AppCompatActivity {
         ServerCheckCode data = new ServerCheckCode();
         data.loadInfo();
         TextView info = (TextView) findViewById(R.id.info);
-        info.setText(data.output());
+        info.setText(data.output("Australiea","42ms"));
     }
 
 }
