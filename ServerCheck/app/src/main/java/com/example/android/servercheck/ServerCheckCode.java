@@ -1,12 +1,11 @@
 package com.example.android.servercheck;
 
-import android.os.AsyncTask;
 
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
-
+//trying to import jsoup and it's not working
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
